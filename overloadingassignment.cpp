@@ -1,30 +1,28 @@
 #include <iostream>
-#include <string.h>
 using namespace std;
-class Book {
-char title[50];
-float price;
+class Account {
 public:
-void getData() {
-cout << "Enter book title: ";
-
-cin >> title;
-cout << "Enter price: ";
-cin >> price;
+virtual void displayBalance() {
+cout << "Generic account balance.\n";
 }
-void operator=(Book &amp;b) {
-strcpy(title, b.title);
-price = b.price;
+};
+class Savings : public Account {
+public:
+void displayBalance() {
+cout << "Savings Account Balance: ₹5000\n";
 }
-void display() {
-cout << "Title: " << title << ", Price: " << price << endl;
+};
+class Current : public Account {
+public:
+void displayBalance() {
+cout << "Current Account Balance: ₹10000\n";
 }
 };
 int main() {
-Book b1, b2;
-b1.getData();
-b2 = b1;
-cout << "\nCopied Book Details:\n";
-b2.display();
-return 0;
+Account *acc;
+Savings s;
+Current c;
+acc = &s; acc->displayBalance();
+acc = &c; acc->displayBalance();
+
 }
