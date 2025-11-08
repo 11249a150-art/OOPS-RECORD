@@ -15,7 +15,7 @@ cout << "Roll: " << roll << ", Name: " << name << endl;
 int main() {
 Student s1, *ptr;
 
-ptr = &amp;s1;
+ptr = &s1;
 ptr->getData();
 ptr->showData();
 }
